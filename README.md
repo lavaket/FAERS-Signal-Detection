@@ -193,10 +193,55 @@ FAERS signal detection generates **hypotheses**, not causal evidence.
 
 ---
 
-# Planned Enhancements
+# Interactive FAERS Signal Detection Dashboard (Shiny App)
 
-- Multi-quarter FAERS ingestion  
-- EBGM (Empirical Bayes Geometric Mean)  
+This project includes a fully interactive Shiny dashboard designed to make FAERS-based signal detection accessible, transparent, and visually intuitive. Instead of running the analysis exclusively through R scripts, the dashboard allows users to:
+
+Key Features
+
+Select any drug and MedDRA Preferred Term (PT) from the FAERS dataset
+
+Automatically generate the epidemiologic 2×2 table (exposure vs. event)
+
+Compute disproportionality metrics
+
+Reporting Odds Ratio (ROR)
+
+Proportional Reporting Ratio (PRR)
+
+95% confidence intervals
+
+Visualize cell counts with a clean, modern bar plot
+
+Download results for external analyses or documentation
+
+Inspect raw analytical output for reproducibility
+
+Technical Highlights
+
+Built using R Shiny + Bootstrap 5 (bslib) for a responsive, modern UI
+
+Automatically detects file delimiters (|, $, !) in FAERS ASCII files
+
+Uses a case-level architecture to properly aggregate drugs and adverse events
+
+Integrates gt tables for publication-ready formatting
+
+Computational pipeline is identical to the standalone .R script for consistency
+
+Intended Use
+
+This dashboard is ideal for:
+
+Safety scientists
+
+Pharmacovigilance analysts
+
+Epidemiology students
+
+Researchers exploring drug–event associations
+
+Anyone wanting to interactively explore FDA FAERS data
 - Bayesian shrinkage for sparse cells  
 - Time-trend signal visualizations  
 - Shiny dashboard  
