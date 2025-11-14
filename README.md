@@ -195,56 +195,52 @@ FAERS signal detection generates **hypotheses**, not causal evidence.
 
 # Interactive FAERS Signal Detection Dashboard (Shiny App)
 
-This project includes a fully interactive Shiny dashboard designed to make FAERS-based signal detection accessible, transparent, and visually intuitive. Instead of running the analysis exclusively through R scripts, the dashboard allows users to:
+This project includes a fully interactive Shiny dashboard designed to make FAERS-based signal detection accessible, transparent, and visually intuitive. Instead of running the analysis exclusively through R scripts, the dashboard allows users to explore drug–event relationships interactively.
 
-Key Features
+# Key Features
 
 Select any drug and MedDRA Preferred Term (PT) from the FAERS dataset
 
-Automatically generate the epidemiologic 2×2 table (exposure vs. event)
+ - Automatically generate the epidemiologic 2×2 contingency table
 
-Compute disproportionality metrics
+ - Compute disproportionality metrics, including:
 
-Reporting Odds Ratio (ROR)
+      - Reporting Odds Ratio (ROR)
 
-Proportional Reporting Ratio (PRR)
+      - Proportional Reporting Ratio (PRR)
 
-95% confidence intervals
+      - 95% confidence intervals
 
-Visualize cell counts with a clean, modern bar plot
+- Visualize cell counts with a clean, modern bar plot
 
-Download results for external analyses or documentation
+- Download all results (tables + plot) for documentation or external analysis
 
-Inspect raw analytical output for reproducibility
+- Easily inspect raw analytical output for reproducibility
 
-Technical Highlights
+# Technical Highlights
 
-Built using R Shiny + Bootstrap 5 (bslib) for a responsive, modern UI
+- Built using R Shiny with Bootstrap 5 (bslib) for a responsive modern UI
 
-Automatically detects file delimiters (|, $, !) in FAERS ASCII files
+- Automatically detects FAERS ASCII file delimiters (|, $, !)
 
-Uses a case-level architecture to properly aggregate drugs and adverse events
+- Uses case-level aggregation to properly combine drug + reaction data
 
-Integrates gt tables for publication-ready formatting
+- Utilizes gt tables for publication-ready table formatting
 
-Computational pipeline is identical to the standalone .R script for consistency
+- Analytical computations mirror the standalone FAERS R script for consistency
 
-Intended Use
+# Intended Use
 
-This dashboard is ideal for:
+- This dashboard is designed for:
 
-Safety scientists
+    - Safety scientists
 
-Pharmacovigilance analysts
+    - Pharmacovigilance analysts
 
-Epidemiology students
+    - Epidemiology students
 
-Researchers exploring drug–event associations
+    - Clinical researchers exploring drug–event relationships
 
-Anyone wanting to interactively explore FDA FAERS data
-- Bayesian shrinkage for sparse cells  
-- Time-trend signal visualizations  
-- Shiny dashboard  
-- Python version of the pipeline  
+    - Anyone seeking to interactively explore FDA FAERS data
 
 ---
