@@ -1,5 +1,5 @@
 
-## FAERS DRUG SAFETY SIGNAL DETECTION PIPELINE
+## Faers Drugs Safety Signal Detection
 
 packages <- c("dplyr", "readr", "stringr", "purrr", "tidyr", "ggplot2")
 to_install <- packages[!(packages %in% installed.packages()[, "Package"])]
@@ -24,7 +24,7 @@ DRUG_PATTERN  <- "OZEMPIC"
 EVENT_PATTERN <- "PANCREATITIS"
 
 
-# Directory where FAERS ASCII TXT files live
+# Directory
 DATA_DIR <- "data_raw"
 
 
@@ -54,8 +54,6 @@ print(head(reac_raw))
 names(drug_raw)
 
 
-# Clean raw drug & reaction tables
-
 drug_clean <- drug_raw %>%
   mutate(
     drugname = str_to_upper(str_squish(drugname)),
@@ -70,7 +68,7 @@ reac_clean <- reac_raw %>%
 cat("Cleaning complete.\n")
 
 
-# Collapse to case-level lists of drugs + reactions
+# Collapse to case level lists of drugs + reactions
 
 
 drugs_by_case <- drug_clean %>%
@@ -100,7 +98,7 @@ cat("Drug and event flagged.\n")
 
 
 
-# Construct 2x2 table
+# Build the 2x2 table
 
 
 # Raw summarized counts
@@ -129,7 +127,7 @@ two_by_two_matrix <- matrix(
 cat("\nFormatted 2×2 Matrix:\n")
 print(two_by_two_matrix)
 
-# tibble version for readability or exporting
+# tibble version for readability or exporting for more visual appeal
 two_by_two_pretty <- tibble::tibble(
   Exposure       = c("Drug Present", "Drug Absent"),
   Event_Present  = c(two_by_two$a, two_by_two$c),
@@ -150,7 +148,7 @@ writeLines(md_tbl, "results/2x2_table.md")
 
 
 
-# Functions for ROR + PRR
+# ROR + PRR functions
 
 
 ror_ci <- function(a, b, c, d) {
@@ -201,7 +199,7 @@ cat("\nSignal Detection Results:\n")
 print(signal_results)
 
 
-# Save outputs
+# Outputs
 
 
 if (!dir.exists("results")) dir.create("results")
